@@ -11,9 +11,6 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
-# ─────────────────────────────────────────
-# 1. USER INPUT
-# ─────────────────────────────────────────
 def get_user_input():
     print("=" * 40)
     print("        BMI CALCULATOR")
@@ -24,10 +21,6 @@ def get_user_input():
     height = float(input("Enter your height (cm): "))
     return name, age, weight, height
 
-
-# ─────────────────────────────────────────
-# 2. BMI LOGIC
-# ─────────────────────────────────────────
 def calculate_bmi(weight, height):
     height_m = height / 100
     bmi = weight / (height_m ** 2)
@@ -68,10 +61,6 @@ def get_health_tips(category):
     }
     return tips[category]
 
-
-# ─────────────────────────────────────────
-# 3. DISPLAY RESULT IN TERMINAL
-# ─────────────────────────────────────────
 def display_result(name, age, bmi, category):
     print("\n" + "=" * 40)
     print(f"  Results for {name} (Age: {age})")
@@ -83,10 +72,6 @@ def display_result(name, age, bmi, category):
         print(f"  {i}. {tip}")
     print("=" * 40)
 
-
-# ─────────────────────────────────────────
-# 4. GRAPH 1 — BMI GAUGE CHART
-# ─────────────────────────────────────────
 def plot_gauge(bmi, category, name):
     fig, ax = plt.subplots(figsize=(8, 4), subplot_kw={"projection": "polar"})
     fig.patch.set_facecolor("#f9f9f9")
@@ -156,10 +141,6 @@ def plot_gauge(bmi, category, name):
     plt.show()
     print("  📊 Gauge chart saved as bmi_gauge.png")
 
-
-# ─────────────────────────────────────────
-# 5. GRAPH 2 — BMI CATEGORY BAR CHART
-# ─────────────────────────────────────────
 def plot_bar_chart(bmi, category, name):
     categories   = ["Underweight", "Normal weight", "Overweight", "Obese"]
     ranges       = [18.5, 24.9, 29.9, 40]       # upper bound of each band
@@ -202,10 +183,6 @@ def plot_bar_chart(bmi, category, name):
     plt.show()
     print("  📊 Bar chart saved as bmi_bar_chart.png")
 
-
-# ─────────────────────────────────────────
-# 6. MAIN
-# ─────────────────────────────────────────
 def main():
     name, age, weight, height = get_user_input()
     bmi      = calculate_bmi(weight, height)
